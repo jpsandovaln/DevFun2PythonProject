@@ -8,7 +8,8 @@ class MainView(QMainWindow):
     def __init__(self):
         super().__init__()
 
-    def initUI(self):
+    def initUI(self, controller):
+        self.__controller = controller
         self.setWindowTitle("Test")
         self.initComponent()
         self.show()
@@ -20,16 +21,18 @@ class MainView(QMainWindow):
         productMenu = QMenu("Product", self)
         prodOption.addMenu(productMenu)
 
-        """insertOption = QAction("Insert", self)
+        insertOption = QAction("Insert", self)
         productMenu.addAction(insertOption)
         showOption = QAction("Show", self)
         productMenu.addAction(showOption)
 
         insertOption.triggered.connect(lambda: self.loadProductInsertView())
-        showOption.triggered.connect(lambda: self.loadProductShowView())"""
+        showOption.triggered.connect(lambda: self.loadProductShowView())
 
     def loadProductInsertView(self):
         self.setCentralWidget(ProductInsertView())
+        self.__controller.addActionListener()
 
     def loadProductShowView(self):
         self.setCentralWidget(ProductShowView())
+        self.__controller.loadProduct()

@@ -12,14 +12,17 @@ class ProductShowView(QWidget):
     def initComponent(self):
         vLayout = QVBoxLayout()
 
-        table = QTableWidget(self)
-        table.setColumnCount(3)
-        table.setHorizontalHeaderLabels(["ID","Product Name","Price"])
+        self.table = QTableWidget(self)
+        self.table.setColumnCount(3)
+        self.table.setHorizontalHeaderLabels(["ID", "Product Name", "Price"])
 
         self.addButton = QPushButton("Add to Cart", self)
 
-        vLayout.addWidget(table)
+        vLayout.addWidget(self.table)
         vLayout.addWidget(self.addButton)
 
         self.setLayout(vLayout)
+
+    def getTable(self):
+        return self.table
 

@@ -11,3 +11,10 @@ class Product:
     def setPrice(self, price):
         self.__price = price
 
+    def getId(self):
+        return self.__Id
+
+    def setId(self, Id):
+        self.__Id = Id
+
+
