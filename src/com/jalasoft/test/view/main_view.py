@@ -36,3 +36,5 @@ class MainView(QMainWindow):
     def loadProductShowView(self):
         self.setCentralWidget(ProductShowView())
         self.__controller.loadProduct()
+        self.__controller.addActionListener()
+
